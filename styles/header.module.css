@@ -1,0 +1,16 @@
+.header {
+    color: #999999;
+    background-color: #FFE600;
+    font-size: 18px;
+    width: 100%;
+    height: 50px;
+}
+
+.searchForm {
+
+}
+
+.searchInput {
+    max-width: 600px;
+    width: 100%;
+}

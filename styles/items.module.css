@@ -1,0 +1,75 @@
+.pageContainer {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #EEEEEE;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #EEEEEE;
+}
+
+.listLayout {
+    width: 80%;
+}
+
+.orderedList {
+    padding: 0;
+    padding: 0 40px 0;
+}
+
+.listItem {
+    list-style: none;
+    border-bottom: thin solid #eee;
+    background-color: #FFF;
+
+}
+
+.itemLayout {
+    display: flex;
+    width: 100%;
+    padding: 20px 50px 20px 0;
+}
+
+.itemImage {
+    width: 220px;
+    height: 180px;
+}
+
+.itemThumbnail {
+    max-width: 180px;
+    max-height: 180px;
+    border-radius: 4px;
+    padding: 0 20px 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.itemContent {
+    color: #333333;
+    font-family: Roboto;
+}
+
+.itemAddress {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.itemState{
+    float: right;
+}
+
+.priceTag {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.itemTitle {
+    font-size: 18px;
+    font-weight: 300;
+}

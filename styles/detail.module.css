@@ -1,0 +1,49 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #EEEEEE;
+    align-items: center;
+}
+
+.detailLayout {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    background-color: #FFF;
+    width: 80vw;
+    max-width: 1200px;
+    min-width: 800px;
+    flex: 1;
+}
+
+.detailLeft {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.detailRight {
+    max-width: 368px;
+    
+}
+
+.image {
+    width: 680px;
+    height: auto;
+    align-content: center;
+}
+
+.description {
+
+}
+
+.button {
+    border-color: transparent;
+    background-color: #3483fa;
+    color: #fff;
+    cursor: pointer;
+    transition: box-shadow .25s ease-out,background-color .2s ease-out;
+    box-shadow: 0 0 0 0 #fff;
+    width: 100%;
+}
