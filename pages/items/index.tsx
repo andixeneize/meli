@@ -3,7 +3,6 @@ import Header from '../../components/header';
 import { GetServerSideProps } from 'next';
 
 export const itemsPage = ({ items }) => {
-
     if (items.length) {
         const itemList = items.map((item) => 
             <li className={styles.listItem}>
@@ -69,20 +68,15 @@ export const getServerSideProps: GetServerSideProps = async (pageContext) => {
     const query = pageContext.query;
     let url = 'http://localhost:3000/api/items';
     
-    console.log('QUERY:');
-    console.log(query);
-    
     if (query.search) {
-        url = url + '?search=' + query.search;
-    }
-    
-    const apiResponse = await fetch (url);
-    
-    const resp = await apiResponse.json();
-
-    return {
-        props: { items: resp.items }
-    }
+        url = url + '?q=' + query.search;
+        const response = await fetch (url);
+        if (response.ok) {
+            const data = await response.json();
+            return {props: {items: data.items}};
+        }
+    } 
+    return {props: {items: {}}};
 };
 
 export default itemsPage;

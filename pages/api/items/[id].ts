@@ -8,7 +8,7 @@ export default async function getItemDetail (req: NextApiRequest, res: NextApiRe
     let detail: any;
     const url = 'https://api.mercadolibre.com/items/' + req.query.id;
 
-    const apiResponse = await Promise.all([
+    Promise.all([
             fetch(url),
             fetch(url + '/description')
         ]).then(function (responses) {
@@ -22,8 +22,8 @@ export default async function getItemDetail (req: NextApiRequest, res: NextApiRe
                 // Detail and Description OK
                 detail = {
                     author: { 
-                        name: '',
-                        lastname: ''
+                        name: 'Andres',
+                        lastname: 'Sanchez'
                     },
                     item: {
                         id: data[0].id,
@@ -40,11 +40,9 @@ export default async function getItemDetail (req: NextApiRequest, res: NextApiRe
                         description: data[1].plain_text
                     }
                 };
-                res.status(200).json({ 
-                    detail
-                });
+                res.status(200).json(detail);
             }
         }).catch(function (error) {
-            res.status(500).json({ error });
+            res.status(500).json({ error: 'Something went wrong' });
     });
 }

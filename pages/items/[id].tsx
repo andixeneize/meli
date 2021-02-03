@@ -51,21 +51,12 @@ export const getServerSideProps: GetServerSideProps = async (pageContext) => {
     const id = pageContext.params.id;
     const url = 'http://localhost:3000/api/items/' + id;
 
-    const detail = await fetch (url)
-    .then((response) => response.json())
-    .then((data) => {
-        if (data.detail) {
-            return data.detail;
-        } else {
-            return null;
-        }
-    })
-    .catch((error) =>{
-        console.log(error);
-        return null;
-    });
-    
-    return { props: { detail: detail }};
+    const response = await fetch (url);
+    if (response.ok) {
+        const data = await response.json();
+        return { props: { detail: data }};
+    } 
+    return { props: {}};
 };
 
 export default detailPage;
