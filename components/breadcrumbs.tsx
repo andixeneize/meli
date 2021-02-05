@@ -1,5 +1,3 @@
-import styles from '../styles/items.module.css';
-
 const Breadcrumbs = ({ categories }) => {
     let breadcrumbs;
 

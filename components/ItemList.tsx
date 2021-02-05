@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import styles from '../styles/items.module.css';
+import styles from '../styles/list.module.css';
 import { Currency } from './currency';
 
 const ItemList = ({ itemList }) => {
