@@ -8,7 +8,7 @@ export default async function getItemDetail (req: NextApiRequest, res: NextApiRe
     let detail: any;
     const url = 'https://api.mercadolibre.com/items/' + req.query.id;
 
-    Promise.all([
+    return Promise.all([
             fetch(url),
             fetch(url + '/description')
         ]).then(function (responses) {

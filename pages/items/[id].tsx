@@ -1,44 +1,39 @@
 import styles from '../../styles/detail.module.css';
-import Header from '../../components/header';
 import { GetServerSideProps } from 'next';
+import { Currency } from '../../components/currency';
+import { Condition } from '../../components/condition';
+import Breadcrumbs from '../../components/breadcrumbs';
 
 export const detailPage = ({ detail }) => {
     if (!detail) {
-        return <h1>Producto no encontrado.</h1>
-    }    
+        return ( 
+            <div className={styles.pageContainer}>
+                <h1 className={styles.notFound}>Producto no encontrado.</h1>
+            </div>
+    )}    
     return(
         <div className={styles.pageContainer}>
-            <style jsx global>{`
-                body {
-                margin: 0;
-                background-color: #EEEEEE;
-                font-family: roboto;
-                }
-            `}</style>
-            <Header />
-
-            <h1>Detalle</h1>
-
+            <Breadcrumbs category=''/>
             <div className={styles.detailLayout}>
                 <div className={styles.detailLeft}>
                     <img className={styles.image} src={detail.item.picture}></img>
                     <div  className={styles.description}>
-                        <h2>Descripción del producto</h2>
-                        <p>{detail.description}</p>
+                        <h2 className={styles.descTitle}>Descripción del producto</h2>
+                        <p>{detail.item.description}</p>
                     </div>
                 </div>
                 <div className={styles.detailRight}>
-                    <span>
-                        {detail.item.condition} | {detail.item.sold_quantity} vendidos 
+                    <span className={styles.sold}>
+                        {Condition(detail.item.condition)} | {detail.item.sold_quantity} vendidos 
                     </span>
-                    <h1>
+                    <h1 className={styles.title}>
                         {detail.item.title}
                     </h1>
-                    <span>
-                        ${detail.item.price.amount}
-                    </span>
+                    <div className={styles.price}>
+                        {Currency(detail.item.price.amount)}
+                    </div>
                     <button className={styles.button}>
-                        comprar
+                        Comprar
                     </button>
                 </div>
             </div>

@@ -8,42 +8,79 @@
 .detailLayout {
     display: flex;
     flex-direction: row;
-    margin-top: 50px;
     background-color: #FFF;
     width: 80vw;
-    max-width: 1200px;
-    min-width: 800px;
+    min-width: 1094px;
     flex: 1;
+    padding: 32px;
 }
 
 .detailLeft {
-    flex: 1;
     display: flex;
-    align-items: center;
+    align-items: left;
     flex-direction: column;
+    width: 712px;
+    flex-grow: 1;
 }
 
 .detailRight {
-    max-width: 368px;
-    
+    padding-left: 32px;
+    width: 340px;
+}
+
+.sold {
+    font-size: 14px;
+}
+
+.title {
+    margin: 16px 0 0 0;
+    font-size: 24px;
+}
+
+.price {
+    margin: 32px 0 32px 0;
+    font-size: 46px;
 }
 
 .image {
     width: 680px;
     height: auto;
+    max-height: 680px;
     align-content: center;
+    margin: auto;
 }
 
 .description {
-
+    font-size: 28px;
+    color: #333;
 }
+
+.descTitle {
+    font-size: 28px;
+    color: #333;
+    font-weight: 500;
+}
+
+.description {
+    font-size: 16px;
+    color: #666;
+}
+
 
 .button {
     border-color: transparent;
-    background-color: #3483fa;
-    color: #fff;
+    background-color: #3483FA;
+    color: #FFF;
     cursor: pointer;
-    transition: box-shadow .25s ease-out,background-color .2s ease-out;
-    box-shadow: 0 0 0 0 #fff;
     width: 100%;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 6px;
+}
+
+
+.notFound {
+    font-size: 24px;
+    color: #333;
 }

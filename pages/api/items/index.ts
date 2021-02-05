@@ -11,14 +11,21 @@ export default async function getItems (req: NextApiRequest, res: NextApiRespons
         url = url.replace(/ /g, '%20');
         
         const response = await fetch(url);
+
         if (response.ok) {
             const data = await response.json();
+            let category = null;
+
+            if (data.filters[0]) {
+                category = data.filters[0].values[0].path_from_root;
+            }
+
             const result = {
                 author: {
                     name: 'Andres',
                     lastname: 'Sanchez'
                 },
-                categories: data.available_filters[0].values,
+                categories: category,
                 items: data.results,
             }
             res.status(200).json( result );

@@ -1,20 +1,31 @@
-// import App from "next/app";
-import type { AppProps /*, AppContext */ } from 'next/app'
+import type { AppProps } from 'next/app';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+
+import Header from '../components/header';
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  const [inputText, setInputText] = useState("");
+  const router = useRouter();
+
+  const onSubmit = (e) => {
+      e.preventDefault();
+
+      if (inputText) {
+          let url = '/items?search=' + inputText;
+          url = url.replace(/ /g, '%20');
+          router.push(url);
+      }
+  }
+
+
+  return (
+    <div className="page-container">
+      <Header setInputText={setInputText} onSubmit={onSubmit}/>
+      <Component {...pageProps} />
+    </div>
+  )
 }
-
-// Only uncomment this method if you have blocking data requirements for
-// every single page in your application. This disables the ability to
-// perform automatic static optimization, causing every page in your app to
-// be server-side rendered.
-//
-// MyApp.getInitialProps = async (appContext: AppContext) => {
-//   // calls page's `getInitialProps` and fills `appProps.pageProps`
-//   const appProps = await App.getInitialProps(appContext);
-
-//   return { ...appProps }
-// }
 
 export default MyApp
