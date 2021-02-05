@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function getItemDetail (req: NextApiRequest, res: NextApiResponse) {
     if (req.method !=='GET') {
-        res.status(500).json({ message: 'Sorry we only accept GET requests'});
+        return res.status(405).end();
     }
     
     let detail: any;
@@ -18,7 +18,7 @@ export default async function getItemDetail (req: NextApiRequest, res: NextApiRe
         }).then(function (data) {
             // Are Detail and Description OK?
             if (data[0].error || data[1].error) {
-                res.status(500).json({ error: 'Resource not found'});
+                return res.status(500).json({ error: 'Resource not found'});
             } else {
                 // Fecth category path for Breadcrumbs
                 const categoryUrl = 'https://api.mercadolibre.com/categories/'+ data[0].category_id;
@@ -47,10 +47,10 @@ export default async function getItemDetail (req: NextApiRequest, res: NextApiRe
                             categories: catgories.path_from_root
                         }
                     };
-                    res.status(200).json(detail);
+                    return res.status(200).json(detail);
                 })
             }
         }).catch(function (error) {
-            res.status(500).json({ error: 'Something went wrong' });
+            return res.status(500).json({ error: 'Something went wrong' });
     });
 }
