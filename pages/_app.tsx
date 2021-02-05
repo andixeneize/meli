@@ -25,9 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <main className="page-container">
       <Head>
         <title>MELI Test Site</title>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="Description" content="A test website for MELI. You can search your favorite items." />
       </Head>
       <Header setInputText={setInputText} onSubmit={onSubmit}/>
       <Component {...pageProps} />
