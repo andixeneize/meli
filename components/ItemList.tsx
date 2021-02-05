@@ -9,11 +9,11 @@ const ItemList = ({ itemList }) => {
     if (itemList.length) {
         items = itemList.map((item) => 
             <li className={styles.listItem} key={item.id}>
-                <Link href={`/items/${encodeURIComponent(item.id)}`}>
+                <Link href={`/items/${encodeURIComponent(item.id)}`} aria-label={`Detalles ${item.id}`}>
                 <div className={styles.itemLayout}>
-                    <img className={styles.itemThumbnail} src={item.thumbnail} alt={`Thumbnail ${item.id}`} ></img>
+                    <img height="180px" width="180px" className={styles.itemThumbnail} src={item.thumbnail} alt={`Thumbnail ${item.id}`} ></img>
                     <div className={styles.itemContent}>
-                        <span className={styles.priceTag}> {Currency(item.price)} <img className={styles.icon} src='/ic_shipping.png' alt={`Shipping ${item.id}`} /></span>
+                        <span className={styles.priceTag}> {Currency(item.price)} <img height="18px" width="18px" className={styles.icon} src='/ic_shipping.png' alt={`Shipping ${item.id}`} /></span>
                         <h2 className={styles.itemTitle}>{item.title}</h2>
                     </div>
                     <div className={styles.itemAddress}>
@@ -26,9 +26,9 @@ const ItemList = ({ itemList }) => {
     } 
 
     return (
-        <div className="">   
+        <ol className={styles.orderedList}>
             {items}
-        </div>
+        </ol>
     )
 };
 

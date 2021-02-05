@@ -43,9 +43,6 @@
 }
 
 .image {
-    width: 680px;
-    height: auto;
-    max-height: 680px;
     align-content: center;
     margin: auto;
 }

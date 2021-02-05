@@ -8,9 +8,7 @@ export const itemsPage = ({ items, categories }) => {
         return (
             <div className={styles.listLayout}>
                 <Breadcrumbs categories={categories}></Breadcrumbs>
-                <ol className={styles.orderedList}>
-                    <ItemList itemList={items} /> 
-                </ol>
+                <ItemList itemList={items} /> 
             </div>
         );
     } else {
