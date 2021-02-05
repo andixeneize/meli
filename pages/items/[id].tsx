@@ -13,7 +13,7 @@ export const detailPage = ({ detail }) => {
     )}    
     return(
         <div className={styles.pageContainer}>
-            <Breadcrumbs categories=''/>
+            <Breadcrumbs categories={detail.item.categories}/>
             <div className={styles.detailLayout}>
                 <div className={styles.detailLeft}>
                     <img className={styles.image} src={detail.item.picture} alt={`Image ${detail.item.id}`} height="680px" width="680px"></img>
