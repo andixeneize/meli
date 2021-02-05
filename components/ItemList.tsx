@@ -11,9 +11,9 @@ const ItemList = ({ itemList }) => {
             <li className={styles.listItem} key={item.id}>
                 <Link href={`/items/${encodeURIComponent(item.id)}`}>
                 <div className={styles.itemLayout}>
-                    <img className={styles.itemThumbnail} src={item.thumbnail}></img>
+                    <img className={styles.itemThumbnail} src={item.thumbnail} alt={`Thumbnail ${item.id}`} ></img>
                     <div className={styles.itemContent}>
-                        <span className={styles.priceTag}> {Currency(item.price)} <img className={styles.icon} src='/ic_shipping.png' /></span>
+                        <span className={styles.priceTag}> {Currency(item.price)} <img className={styles.icon} src='/ic_shipping.png' alt={`Shipping ${item.id}`} /></span>
                         <h2 className={styles.itemTitle}>{item.title}</h2>
                     </div>
                     <div className={styles.itemAddress}>

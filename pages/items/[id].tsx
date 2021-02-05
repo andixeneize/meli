@@ -16,7 +16,7 @@ export const detailPage = ({ detail }) => {
             <Breadcrumbs categories=''/>
             <div className={styles.detailLayout}>
                 <div className={styles.detailLeft}>
-                    <img className={styles.image} src={detail.item.picture}></img>
+                    <img className={styles.image} src={detail.item.picture} alt={`Image ${detail.item.id}`}></img>
                     <div  className={styles.description}>
                         <h2 className={styles.descTitle}>Descripción del producto</h2>
                         <p>{detail.item.description}</p>

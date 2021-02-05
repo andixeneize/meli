@@ -15,7 +15,7 @@ const Header = ({ setInputText, onSubmit }) => {
                 </Link>
                 <input onChange={inputTextHandler} className={styles.input} type="text" placeholder="Nunca dejes de buscar" />
                 <button onClick={onSubmit} className={styles.button} type="submit">
-                    <img className={styles.icon} src='/ic_Search.png' />
+                    <img className={styles.icon} src='/ic_Search.png' alt="search_icon" />
                 </button>
             </form>
         </div>
