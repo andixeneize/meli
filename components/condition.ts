@@ -6,4 +6,4 @@ export const Condition = (condition)  => {
         return 'Usado'
     }
     return condition;
- }
+}

@@ -3,14 +3,16 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Head from 'next/head';
-import Header from '../components/header';
+import SearchBox from '../components/searchBox';
+
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
+
   const [inputText, setInputText] = useState("");
   const router = useRouter();
 
-  const onSubmit = (e) => {
+  const onSearch = (e) => {
       e.preventDefault();
 
       if (inputText) {
@@ -24,10 +26,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <main className="page-container">
       <Head>
-        <title>MELI Test Site</title>
+        <title>Mercado Libre Argentina</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
       </Head>
-      <Header setInputText={setInputText} onSubmit={onSubmit}/>
+      <SearchBox setInputText={setInputText} onSubmit={onSearch}/>
       <Component {...pageProps} />
     </main>
   )
