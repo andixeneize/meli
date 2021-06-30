@@ -1,5 +1,4 @@
 import styles from '../../styles/detail.module.css';
-import { GetServerSideProps } from 'next';
 import { Currency } from '../../components/currency';
 import { Condition } from '../../components/condition';
 import Breadcrumbs from '../../components/breadcrumbs';
@@ -42,7 +41,7 @@ export const detailPage = ({ detail }) => {
     );
 };
 
-export const getServerSideProps: GetServerSideProps = async (pageContext) => {
+export const getServerSideProps = async (pageContext) => {
     const id = pageContext.params.id;
     const url = 'http://localhost:3000/api/items/' + id;
 

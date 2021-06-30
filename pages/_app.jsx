@@ -1,14 +1,10 @@
-import type { AppProps } from 'next/app';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-
 import Head from 'next/head';
 import SearchBox from '../components/searchBox';
-
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }: AppProps) {
-
+function MyApp({ Component, pageProps }) {
   const [inputText, setInputText] = useState("");
   const router = useRouter();
 
@@ -16,12 +12,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       e.preventDefault();
 
       if (inputText) {
-          let url = '/items?search=' + inputText;
-          url = url.replace(/ /g, '%20');
-          router.push(url);
+        // Format blank spaces on search url 
+        let url = '/items?search=' + inputText;
+        url = url.replace(/ /g, '%20');
+        router.push(url);
       }
   }
-
 
   return (
     <main className="page-container">
@@ -35,4 +31,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyApp
+export default MyApp;

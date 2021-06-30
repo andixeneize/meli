@@ -1,5 +1,4 @@
 import styles from '../../styles/items.module.css';
-import { GetServerSideProps } from 'next';
 import ItemList from '../../components/itemList';
 import Breadcrumbs from '../../components/breadcrumbs';
 
@@ -17,7 +16,7 @@ export const itemsPage = ({ items, categories }) => {
     )};
 };
 
-export const getServerSideProps: GetServerSideProps = async (pageContext) => {
+export const getServerSideProps = async (pageContext) => {
     const query = pageContext.query;
     let url = 'http://localhost:3000/api/items';
     

@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/api/search.js"  ],
+, "pages/api/search.js", "components/breadcrumbs.jsx", "pages/_app.jsx", "pages/items/[id].jsx", "pages/items/index.jsx", "pages/index.jsx", "pages/items/index.jsx"  ],
   "exclude": [
     "node_modules"
   ]

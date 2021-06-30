@@ -1,6 +1,7 @@
 const Breadcrumbs = ({ categories }) => {
     let breadcrumbs;
 
+    // Format breadcrumbs
     if (categories && categories.length) {
         breadcrumbs = categories.map((category, index) => {
             if (index == 0) {
