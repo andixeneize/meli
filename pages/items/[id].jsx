@@ -1,7 +1,7 @@
 import css from '../../styles/detail.module.css';
-import { Currency } from '../../utils/currency';
-import { Condition } from '../../utils/condition';
 import Breadcrumbs from '../../components/breadcrumbs';
+import LeftDetail from '../../components/leftDetail';
+import RightDetail from '../../components/rightDetail';
 
 export const detailPage = ({ detail }) => {
     if (!detail) {
@@ -13,33 +13,25 @@ export const detailPage = ({ detail }) => {
     return(
         <div className={css["pageContainer"]}>
             <Breadcrumbs categories={detail.item.categories}/>
+
             <div className={css["detailLayout"]}>
-                <div className={css["detailLeft"]}>
-                    <img className={css["image"]} src={detail.item.picture} alt={`Image ${detail.item.id}`} height="680px" width="680px"></img>
-                    <div  className={css["description"]}>
-                        <h2 className={css["descTitle"]}>Descripción del producto</h2>
-                        <p>{detail.item.description}</p>
-                    </div>
-                </div>
-                <div className={css["detailRight"]}>
-                    <span className={css["sold"]}>
-                        {Condition(detail.item.condition)} | {detail.item.sold_quantity} vendidos 
-                    </span>
-                    <h1 className={css["title"]}>
-                        {detail.item.title}
-                    </h1>
-                    <div className={css["price"]}>
-                        {Currency(detail.item.price.amount)}
-                    </div>
-                    <button className={css["button"]}>
-                        Comprar
-                    </button>
-                </div>
+
+                <LeftDetail 
+                    img={detail.item.picture} 
+                    desc={detail.item.description}
+                />
+
+                <RightDetail 
+                    condition={detail.item.condition} 
+                    sold={detail.item.sold_quantity }
+                    title={detail.item.title}
+                    price={detail.item.price.amount}
+                />
             </div>
- 
         </div>
     );
 };
+
 
 export const getServerSideProps = async (pageContext) => {
     const id = pageContext.params.id;
