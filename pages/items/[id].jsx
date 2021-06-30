@@ -1,37 +1,37 @@
-import styles from '../../styles/detail.module.css';
-import { Currency } from '../../components/currency';
-import { Condition } from '../../components/condition';
+import css from '../../styles/detail.module.css';
+import { Currency } from '../../utils/currency';
+import { Condition } from '../../utils/condition';
 import Breadcrumbs from '../../components/breadcrumbs';
 
 export const detailPage = ({ detail }) => {
     if (!detail) {
         return ( 
-            <div className={styles.pageContainer}>
-                <h1 className={styles.notFound}>Producto no encontrado.</h1>
+            <div className={css["pageContainer"]}>
+                <h1 className={css["notFound"]}>Producto no encontrado.</h1>
             </div>
     )}    
     return(
-        <div className={styles.pageContainer}>
+        <div className={css["pageContainer"]}>
             <Breadcrumbs categories={detail.item.categories}/>
-            <div className={styles.detailLayout}>
-                <div className={styles.detailLeft}>
-                    <img className={styles.image} src={detail.item.picture} alt={`Image ${detail.item.id}`} height="680px" width="680px"></img>
-                    <div  className={styles.description}>
-                        <h2 className={styles.descTitle}>Descripción del producto</h2>
+            <div className={css["detailLayout"]}>
+                <div className={css["detailLeft"]}>
+                    <img className={css["image"]} src={detail.item.picture} alt={`Image ${detail.item.id}`} height="680px" width="680px"></img>
+                    <div  className={css["description"]}>
+                        <h2 className={css["descTitle"]}>Descripción del producto</h2>
                         <p>{detail.item.description}</p>
                     </div>
                 </div>
-                <div className={styles.detailRight}>
-                    <span className={styles.sold}>
+                <div className={css["detailRight"]}>
+                    <span className={css["sold"]}>
                         {Condition(detail.item.condition)} | {detail.item.sold_quantity} vendidos 
                     </span>
-                    <h1 className={styles.title}>
+                    <h1 className={css["title"]}>
                         {detail.item.title}
                     </h1>
-                    <div className={styles.price}>
+                    <div className={css["price"]}>
                         {Currency(detail.item.price.amount)}
                     </div>
-                    <button className={styles.button}>
+                    <button className={css["button"]}>
                         Comprar
                     </button>
                 </div>

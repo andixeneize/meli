@@ -1,20 +1,21 @@
-import styles from '../../styles/items.module.css';
+import css from '../../styles/items.module.css';
 import ItemList from '../../components/itemList';
 import Breadcrumbs from '../../components/breadcrumbs';
 
 export const itemsPage = ({ items, categories }) => {
     if (items && items.length) {
         return (
-            <div className={styles.listLayout}>
+            <div className={css["listLayout"]}>
                 <Breadcrumbs categories={categories}></Breadcrumbs>
                 <ItemList itemList={items} /> 
             </div>
         );
     } else {
         return (
-        <div></div>
+        <></>
     )};
 };
+
 
 export const getServerSideProps = async (pageContext) => {
     const query = pageContext.query;
